@@ -8,7 +8,7 @@ class LogGen:
         formatter = logging.Formatter('%(asctime)s: %(message)s')
         fhandler.setFormatter(formatter)
         logger.addHandler(fhandler)
-        logger.setLevel(logging.INFO)
+        logger.setLevel(logging.DEBUG)
         logger = logging.getLogger()
         return logger
 
