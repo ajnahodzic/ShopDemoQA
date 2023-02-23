@@ -1,0 +1,2 @@
+# ShopDemoQA
+Python automation framework
