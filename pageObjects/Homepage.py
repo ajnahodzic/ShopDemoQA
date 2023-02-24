@@ -11,20 +11,8 @@ class Homepage:
     def __init__(self, driver):
         self.driver = driver
 
-    def clickMyAccount(self):
-        self.driver.find_element(By.XPATH, self.button_myaccount_xpath).click()
-
-    def clickCheckout(self):
-        self.driver.find_element(By.XPATH, self.button_checkout_xpath).click()
-
-
     def clickLogo(self):
         button = self.driver.find_element(By.CLASS_NAME, self.logo_class)
-        if button.is_displayed():
-            button.click()
-
-    def clickDismiss(self):
-        button = self.driver.find_element(By.XPATH, self.button_dismiss_xpath)
         if button.is_displayed():
             button.click()
 

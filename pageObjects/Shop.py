@@ -13,9 +13,6 @@ class Shop:
     def __init__(self, driver):
         self.driver = driver
 
-    def clickFirstItem(self):
-        self.driver.find_element(By.XPATH, self.item_first_xpath).click()
-
     def clickAddToCart(self):
         button = self.driver.find_element(By.XPATH, self.button_addToCart_xpath)
         ActionChains(self.driver).move_to_element(button)
@@ -31,9 +28,5 @@ class Shop:
         option = Select(color_dropdown)
         option.select_by_index(1)
 
-    def clickViewCart(self):
-        self.driver.find_element(By.XPATH, self.button_view_cart_xpath).click()
-
     def itemName(self):
         return self.driver.find_element(By.XPATH, self.name_of_item_xpath).text
-

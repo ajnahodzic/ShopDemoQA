@@ -3,6 +3,7 @@ from pageObjects.Shop import Shop
 from pageObjects.Cart import Cart
 from utilities.readProperties import ReadConfig
 from utilities.customLogger import LogGen
+from utilities import helper
 
 @pytest.mark.usefixtures("setup")
 class Test_MyAccount:
@@ -19,8 +20,7 @@ class Test_MyAccount:
 
         #SELECT ITEM
         self.shop = Shop(self.driver)
-        self.shop.clickFirstItem()
-        self.driver.implicitly_wait(2)
+        helper.clickOnElement_XPATH(self.driver, self.shop.item_first_xpath)
 
         #SELECT SIZE AND COLOR
         self.shop.selectColor()
@@ -31,12 +31,7 @@ class Test_MyAccount:
         self.shop.clickAddToCart()
 
         #VALIDATE THE ITEM IS ADDED TO THE CART
-        self.shop.clickViewCart()
+        helper.clickOnElement_XPATH(self.driver, self.shop.button_view_cart_xpath)
         self.cart = Cart(self.driver)
         self.cart.getItemName()
-
-        if chosen_item in self.cart.getItemName():
-            assert True
-        else:
-            self.driver.save_screenshot(".\\screenshots\\" + "test_addToCart.png")
-            assert False
+        assert chosen_item in self.cart.getItemName()

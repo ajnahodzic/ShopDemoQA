@@ -3,6 +3,7 @@ from pageObjects.LoginPage import LoginPage
 from pageObjects.Homepage import Homepage
 from utilities.readProperties import ReadConfig
 from utilities.customLogger import LogGen
+from utilities import helper
 
 @pytest.mark.usefixtures("setup")
 class Test_MyAccount:
@@ -17,42 +18,29 @@ class Test_MyAccount:
         self.logger.info("***** TEST REGISTRATION *****")
         self.driver.get(self.baseURL)
         self.hp = Homepage(self.driver)
-        self.hp.clickDismiss()
-        self.hp.clickMyAccount()
+        helper.clickOnElement_XPATH(self.driver, self.hp.button_dismiss_xpath)
+        helper.clickOnElement_XPATH(self.driver, self.hp.button_myaccount_xpath)
 
         self.lp = LoginPage(self.driver)
-        self.lp.setRegUsername(self.username)
-        self.lp.setRegEmail(self.email)
-        self.lp.setRegPassword(self.password)
-        self.lp.clickRegister()
+        self.setElementValue(self.driver, self.lp.textbox_reg_username_id, self.username)
+        self.setElementValue(self.driver, self.lp.textbox_reg_email_id, self.email)
+        self.setElementValue(self.driver, self.lp.textbox_password_id, self.password)
+        helper.clickOnElement_XPATH(self.driver, self.lp.button_register_xpath)
+        assert self.lp.is_logout_button_visible()
 
-        if self.lp.is_logout_button_visible():
-            assert True
-            self.driver.close()
-        else:
-            self.driver.save_screenshot(".\\screenshots\\" + "test_registration.png")
-            self.driver.close()
-            assert False
 
     def test_TC003_user_login_of_registered_user(self):
         self.logger.info("***** TEST LOGIN *****")
         self.driver.get(self.baseURL)
-
         self.hp = Homepage(self.driver)
-        self.hp.clickDismiss()
-        self.hp.clickMyAccount()
+        helper.clickOnElement_XPATH(self.driver, self.hp.button_dismiss_xpath)
+        helper.clickOnElement_XPATH(self.driver, self.hp.button_myaccount_xpath)
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUsername(self.username)
-        self.lp.setPassword(self.password)
-        self.lp.clickLogin()
+        self.setElementValue(self.driver, self.lp.textbox_username_id, self.username)
+        self.setElementValue(self.driver, self.lp.textbox_password_id, self.password)
+        helper.clickOnElement_XPATH(self.driver, self.lp.button_login_xpath)
+        assert self.lp.is_logout_button_visible()
 
-        if self.lp.is_logout_button_visible():
-            assert True
-            self.driver.close()
-        else:
-            self.driver.save_screenshot(".\\screenshots\\" + "test_login.png")
-            self.driver.close()
-            assert False
 
 
