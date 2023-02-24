@@ -22,9 +22,9 @@ class Test_MyAccount:
         helper.clickOnElement_XPATH(self.driver, self.hp.button_myaccount_xpath)
 
         self.lp = LoginPage(self.driver)
-        self.setElementValue(self.driver, self.lp.textbox_reg_username_id, self.username)
-        self.setElementValue(self.driver, self.lp.textbox_reg_email_id, self.email)
-        self.setElementValue(self.driver, self.lp.textbox_password_id, self.password)
+        helper.setElementValue(self.driver, self.lp.textbox_reg_username_id, self.username)
+        helper.setElementValue(self.driver, self.lp.textbox_reg_email_id, self.email)
+        helper.setElementValue(self.driver, self.lp.textbox_reg_password_id, self.password)
         helper.clickOnElement_XPATH(self.driver, self.lp.button_register_xpath)
         assert self.lp.is_logout_button_visible()
 
@@ -37,8 +37,8 @@ class Test_MyAccount:
         helper.clickOnElement_XPATH(self.driver, self.hp.button_myaccount_xpath)
 
         self.lp = LoginPage(self.driver)
-        self.setElementValue(self.driver, self.lp.textbox_username_id, self.username)
-        self.setElementValue(self.driver, self.lp.textbox_password_id, self.password)
+        helper.setElementValue(self.driver, self.lp.textbox_username_id, self.username)
+        helper.setElementValue(self.driver, self.lp.textbox_password_id, self.password)
         helper.clickOnElement_XPATH(self.driver, self.lp.button_login_xpath)
         assert self.lp.is_logout_button_visible()
 

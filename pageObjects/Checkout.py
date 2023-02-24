@@ -27,5 +27,8 @@ class Checkout:
     def is_order_received(self):
         return self.driver.find_element(By.CLASS_NAME, self.message_order_received_class).is_displayed()
 
+    def tickCheckbox(self):
+        self.driver.find_element(By.ID, self.checkbox_terms_id).click()
 
-
+    def clickPlaceOrder(self):
+        self.driver.find_element(By.ID, self.button_place_order_id).click()
