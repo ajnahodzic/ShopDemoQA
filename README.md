@@ -14,6 +14,6 @@ Next, you'll need to install the necessary dependencies. You can use the followi
 
 Once you have the project set up, you can run the test scripts using the following command:
 
-```pytest -v -s .\testCases\test_AddToCart.py```
+```pytest -v -s .\testCases\test_test_e2e.py```
 
 The tests will run in your default browser and output the results in the console.
