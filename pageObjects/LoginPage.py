@@ -14,21 +14,22 @@ class LoginPage:
     def __init__(self, driver):
         self.driver = driver
 
+    def setElementValue(self, element_id, value):
+        element = self.driver.find_element(By.ID, element_id)
+        element.clear()
+        element.send_keys(value)
+
     def setUsername(self, username):
-        self.driver.find_element(By.ID, self.textbox_username_id).clear()
-        self.driver.find_element(By.ID, self.textbox_username_id).send_keys(username)
+        self.setElementValue(self.textbox_username_id, username)
 
     def setPassword(self, password):
-        self.driver.find_element(By.ID, self.textbox_password_id).clear()
-        self.driver.find_element(By.ID, self.textbox_password_id).send_keys(password)
+        self.setElementValue(self.textbox_password_id, password)
 
     def setRegUsername(self, username):
-        self.driver.find_element(By.ID, self.textbox_reg_username_id).clear()
-        self.driver.find_element(By.ID, self.textbox_reg_username_id).send_keys(username)
+        self.setElementValue(self.textbox_reg_username_id, username)
 
     def setRegEmail(self, password):
-        self.driver.find_element(By.ID, self.textbox_reg_email_id).clear()
-        self.driver.find_element(By.ID, self.textbox_reg_email_id).send_keys(password)
+        self.setElementValue(self.textbox_reg_email_id, password)
 
     def setRegPassword(self, password):
         self.driver.find_element(By.ID, self.textbox_reg_password_id).clear()

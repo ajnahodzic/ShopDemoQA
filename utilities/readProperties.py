@@ -23,3 +23,8 @@ class ReadConfig:
     def getEmail():
         email = config.get('common data', 'email')
         return email
+
+    @staticmethod
+    def getData(key):
+        data = config.get('common data', key)
+        return data

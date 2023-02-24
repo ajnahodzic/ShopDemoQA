@@ -13,7 +13,7 @@ class Test_MyAccount:
 
     logger = LogGen.loggen()
 
-    def test_TC008_validate_add_to_cart(self):
+    def test_TC008_validate_user_is_able_to_add_to_cart(self):
         self.logger.info("***** TEST Add To Cart *****")
         self.driver.get(self.baseURL + "/shop/")
 
@@ -30,7 +30,7 @@ class Test_MyAccount:
         #ADD TO CART
         self.shop.clickAddToCart()
 
-        #VERIFY CART
+        #VALIDATE THE ITEM IS ADDED TO THE CART
         self.shop.clickViewCart()
         self.cart = Cart(self.driver)
         self.cart.getItemName()

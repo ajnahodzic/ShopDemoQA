@@ -9,6 +9,8 @@ def setup(request):
     driver.maximize_window()
     request.cls.driver = driver
     yield
+    test_name = request.node.name
+    driver.save_screenshot(".\\screenshots\\" + test_name + ".png")
     driver.close()
     return driver
 

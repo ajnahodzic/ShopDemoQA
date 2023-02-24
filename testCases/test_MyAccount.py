@@ -13,7 +13,7 @@ class Test_MyAccount:
 
     logger = LogGen.loggen()
 
-    def test_registration(self):
+    def test_TC001_user_registration_with_new_valid_data(self):
         self.logger.info("***** TEST REGISTRATION *****")
         self.driver.get(self.baseURL)
         self.hp = Homepage(self.driver)
@@ -34,7 +34,7 @@ class Test_MyAccount:
             self.driver.close()
             assert False
 
-    def test_login(self):
+    def test_TC003_user_login_of_registered_user(self):
         self.logger.info("***** TEST LOGIN *****")
         self.driver.get(self.baseURL)
 
