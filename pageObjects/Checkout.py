@@ -1,6 +1,5 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
-from selenium.webdriver.common.action_chains import ActionChains
 
 class Checkout:
     button_myaccount_xpath = "/html/body/div[2]/header/div[1]/div/ul[2]/li[2]/a"

@@ -21,7 +21,7 @@ class Test_e2e:
         self.driver.get(self.baseURL)
         self.hp = Homepage(self.driver)
         helper.clickOnElement_XPATH(self.driver, self.hp.button_dismiss_xpath)
-        """helper.clickOnElement_XPATH(self.driver, self.hp.button_myaccount_xpath)
+        helper.clickOnElement_XPATH(self.driver, self.hp.button_myaccount_xpath)
 
         # VERIFY USER REGISTRATION
         self.lp = LoginPage(self.driver)
@@ -32,7 +32,7 @@ class Test_e2e:
         assert self.lp.is_logout_button_visible()
 
         # ADD ITEM TO THE CART
-        self.hp.clickLogo()"""
+        self.hp.clickLogo()
         self.hp.clickFirstItem()
         self.shop = Shop(self.driver)
         self.shop.selectColor()
