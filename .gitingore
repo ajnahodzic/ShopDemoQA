@@ -3,6 +3,7 @@
 *.iml
 out
 gen
+**/__pycache__/
 
 # HTML Reports
 *.html
